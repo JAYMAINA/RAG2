@@ -7,8 +7,7 @@ from dotenv import load_dotenv
 from deep_translator import GoogleTranslator
 from langchain.chains.question_answering import load_qa_chain
 import langdetect
-from langdetect import detect
-#from langchain_community.chat_models import OpenAI  
+from langdetect import detect 
 from langchain_openai import OpenAI  
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
@@ -21,26 +20,23 @@ import json
 load_dotenv()
 
 
-# Initialize FastAPI
+
 app = FastAPI()
 
-# Define allowed origins (your frontend URL)
 origins = [
-    "http://localhost:5173",  # Vite Dev Server
+    "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
 
-# Add CORS middleware to allow frontend requests
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allow only frontend URLs
+    allow_origins=origins, 
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
 
-# Initialize LLM
-#llm = OpenAI(temperature=0.8, model_name="gpt-3.5-turbo-instruct")
 
 # Load FAISS knowledge base
 def initialize_faiss():
@@ -64,7 +60,7 @@ def initialize_faiss():
 
 document_search = initialize_faiss()
 
-# Language Detection & Translation Functions
+
 def detect_language(text):
     return detect(text)
 
