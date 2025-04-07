@@ -1,3 +1,7 @@
 backend/.env
+backend/_pycache_
+backend/faiss_index_react
+backend/3.pdf
 
 frontend/node_modules
+

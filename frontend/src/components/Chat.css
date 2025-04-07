@@ -1,0 +1,127 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+}
+
+.messages-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  padding: 5px 0;
+}
+
+.message-content {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.user-message .message-content {
+  background-color: #007AFF;
+  color: white;
+}
+
+.assistant-message .message-content {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.input-form {
+  display: flex;
+  gap: 8px;
+  padding: 15px;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+}
+
+.input-form input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.input-form input::placeholder {
+  color: var(--text-secondary);
+}
+
+.input-form input:focus {
+  border-color: #007AFF;
+}
+
+.input-form button {
+  padding: 12px 24px;
+  background-color: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-form button:hover {
+  background-color: #0056b3;
+}
+
+.input-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-secondary);
+  border-radius: 50%;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+} 
